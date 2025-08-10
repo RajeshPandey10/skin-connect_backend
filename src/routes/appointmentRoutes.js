@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { verifyJwtToken } from "../middlewares/authmiddleware.js";
+import { verifyJwtToken } from "../middlewares/authMiddleware.js";
 import {
   acceptAppointment,
   deleteAppointment,
@@ -22,6 +22,6 @@ router
 router
   .route("/getSpecialistAppointment/:id")
   .get(verifyJwtToken, getSpecialistAppointment);
-router.route("/getIdOfSpecialist/:id").get(verifyJwtToken,getIdOfSpecialist)
+router.route("/getIdOfSpecialist/:id").get(verifyJwtToken, getIdOfSpecialist);
 
 export default router;

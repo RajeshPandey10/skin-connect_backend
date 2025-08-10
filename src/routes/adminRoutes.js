@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { verifyJwtToken } from "../middlewares/authmiddleware.js";
+import { verifyJwtToken } from "../middlewares/authMiddleware.js";
 import {
   getAllAppointments,
   getDashboardData,

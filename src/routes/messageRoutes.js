@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { verifyJwtToken } from "../middlewares/authmiddleware.js";
+import { verifyJwtToken } from "../middlewares/authMiddleware.js";
 import {
   getAllMessages,
   getUniquePersons,
@@ -10,7 +10,7 @@ import {
 import { upload } from "../middlewares/multerMiddlewares.js";
 
 const router = Router();
-    
+
 router.route("/registerMessage").post(verifyJwtToken, registerMessage);
 router
   .route("/uploadChatMessage")
