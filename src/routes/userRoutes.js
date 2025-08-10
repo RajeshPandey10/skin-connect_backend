@@ -8,7 +8,7 @@ import {
   resetPassword,
   updateProfileDetails,
 } from "../controllers/userController.js";
-import { verifyJwtToken } from "../middlewares/authmiddleware.js";
+import authMiddleware from "../middlewares/authMiddleware.js";
 
 const router = Router();
 
@@ -28,9 +28,10 @@ router.route("/registerUser").post(registerUser);
 router.route("/checkUserInDb/:userEmail").get(checkUserInDb);
 router.route("/loginUser").put(loginUser);
 router.route("/resetPassword").put(resetPassword);
-router.route("/updateUserData").put(verifyJwtToken, updateProfileDetails);
-router.route("/getUserData").get(verifyJwtToken, getUserData);
-router.route("/logout").get(verifyJwtToken,logoutUser);
-
+router
+  .route("/updateUserData")
+  .put(authMiddleware.verifyJwtToken, updateProfileDetails);
+router.route("/getUserData").get(authMiddleware.verifyJwtToken, getUserData);
+router.route("/logout").get(authMiddleware.verifyJwtToken, logoutUser);
 
 export default router;
